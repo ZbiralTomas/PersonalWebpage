@@ -1,101 +1,116 @@
-import Image from "next/image";
+import Header from '@/components/Header';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="bg-white min-h-screen text-black">
+      <Header />
+      <main className="p-4 flex justify-between items-start">
+        <div>
+          {/* Zmenšení písma a změna barvy odkazů na černou s podtržením */}
+          <p className="text-base">
+            Vědecký pracovník na{' '}
+            <Link href="https://portal.fsv.cvut.cz/katedry/K102" className="text-black underline hover:no-underline">
+              Katedře fyziky
+            </Link>{' '}
+            na{' '}
+            <Link href="https://www.fsv.cvut.cz" className="text-black underline hover:no-underline">
+              Stavební fakultě ČVUT
+            </Link>
+          </p>
+          <p className="text-base mt-2">
+            Organizátor{' '}
+            <Link href="https://www.facebook.com/tabor.mladych.matematiku"
+                  className="text-black underline hover:no-underline">
+              Tábora mladých matematiků
+            </Link>
+          </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <p className="mt-2">
+            <strong>E-mail:</strong> zbiratom@cvut.cz
+          </p>
+          <p className="mt-2">
+            <strong>Místnost:</strong> A-624a
+          </p>
+          <p className="mt-2">
+            <strong>Konzultační hodiny:</strong> Pátek 10:00 - 11:30
+          </p>
+
+          {/* Sekce Výuka */}
+          <section id="vyuka" className="mt-10">
+            <h2 className="text-2xl font-bold">Výuka</h2>
+            <h3 className="text-lg mt-4">
+              <Link href="http://departments.fsv.cvut.cz/k102/bakalarske-studium/fyzika"
+                    className="text-black underline hover:no-underline">
+                102FYI - Fyzika
+              </Link>
+            </h3>
+          </section>
+
+          {/* Sekce Publikace */}
+          <section id="publikace" className="mt-10">
+            <h2 className="text-2xl font-bold">Publikace</h2>
+
+            {/* Rok 2025 */}
+            <h3 className="text-xl font-semibold mt-6">2025</h3>
+            <ul className="list-disc ml-5">
+              <li className="mt-2">
+                S. Vítek, T. Zbíral, V. Nežerka: {' '}
+                <Link href="https://www.researchgate.net/publication/387767790_Using_hyperspectral_imaging_to_identify
+                _optimal_narrowband_filter_parameters_for_construction_and_demolition_waste_classification"
+                      className="font-semibold text-black underline hover:no-underline">
+                  Using hyperspectral imaging to identify optimal narrowband filter parameters for construction and
+                  demolition waste classification
+                </Link>
+              </li>
+            </ul>
+
+            {/* Rok 2024 */}
+            <h3 className="text-xl font-semibold mt-6">2024</h3>
+            <ul className="list-disc ml-5">
+              <li className="mt-2">
+                T. Zbíral: {' '}
+                <Link href="/pdfs/Bc-TomasZbiral.pdf" className="font-semibold text-black underline hover:no-underline">
+                  Classification of construction and demolition waste using computer vision
+                </Link>{' '} (bakalářská práce)
+              </li>
+            </ul>
+
+            {/* Rok 2023 */}
+            <h3 className="text-xl font-semibold mt-6">2023</h3>
+            <ul className="list-disc ml-5">
+              <li className="mt-2">
+                T. Zbíral, V. Nežerka: {' '}
+                <Link href="https://www.researchgate.net/publication/374855694_Computer_Vision-Based_Algorithms_for_
+                Recognition_of_Construction_and_Demolition_Waste_Materials"
+                      className="font-semibold text-black underline hover:no-underline">
+                  Computer Vision-Based Algorithms for Recognition of Construction and Demolition Waste Materials
+                </Link>
+              </li>
+              <li className="mt-2">
+                V. Nežerka, T. Zbíral, J. Trejbal: {' '}
+                <Link href="https://www.researchgate.net/publication/374200994_Machine-learning-assisted_classification
+                _of_construction_and_demolition_waste_fragments_using_computer_vision_Convolution_versus_extraction_of_
+                selected_features" className="font-semibold text-black underline hover:no-underline">
+                  Machine-leaning-assisted classification of construction and demolition waste fragments using computer
+                  vision: Convolution versus extraction of selected features
+                </Link>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        {/* Přidání portrétu na pravou stranu */}
+        <div className="ml-8">
+          <Image
+            src="/images/portret.png"
+            alt="Portrét"
+            width={300}  // můžeš upravit podle potřeby
+            height={300}  // můžeš upravit podle potřeby
+          />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
